@@ -1,7 +1,7 @@
 package com.janwojnar.meteoapp.service.impl;
 
-import com.janwojnar.meteoapp.domain.to.EndpointCallTo;
 import com.janwojnar.meteoapp.domain.service.EndpointCallService;
+import com.janwojnar.meteoapp.domain.to.EndpointCallTo;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;

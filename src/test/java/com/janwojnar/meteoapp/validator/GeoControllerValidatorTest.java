@@ -3,8 +3,6 @@ package com.janwojnar.meteoapp.validator;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 
-import static org.junit.jupiter.api.Assertions.*;
-
 class GeoControllerValidatorTest {
     private final GeoControllerValidator validator = new GeoControllerValidator();
     @Test
