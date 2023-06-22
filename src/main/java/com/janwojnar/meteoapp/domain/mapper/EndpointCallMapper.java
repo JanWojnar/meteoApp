@@ -1,10 +1,7 @@
 package com.janwojnar.meteoapp.domain.mapper;
 
-import com.janwojnar.meteoapp.domain.entity.AbstractEntity;
 import com.janwojnar.meteoapp.domain.entity.EndpointCallEntity;
 import com.janwojnar.meteoapp.domain.to.EndpointCallTo;
-
-import java.util.stream.Collectors;
 
 public class EndpointCallMapper {
 
@@ -12,8 +9,8 @@ public class EndpointCallMapper {
         return EndpointCallTo
                 .builder()
                 .id(endpointCallEntity.getId())
-                .geoWidth(endpointCallEntity.getGeoWidth())
-                .geoLength(endpointCallEntity.getGeoLength())
+                .latitude(endpointCallEntity.getLatitude())
+                .longitude(endpointCallEntity.getLongitude())
                 .timeOfCall(endpointCallEntity.getTimeOfCall())
                 .build();
     }
@@ -22,8 +19,8 @@ public class EndpointCallMapper {
         return EndpointCallEntity
                 .builder()
                 .id(endpointCallTo.getId())
-                .geoWidth(endpointCallTo.getGeoWidth())
-                .geoLength(endpointCallTo.getGeoLength())
+                .latitude(endpointCallTo.getLatitude())
+                .longitude(endpointCallTo.getLongitude())
                 .timeOfCall(endpointCallTo.getTimeOfCall())
                 .build();
     }

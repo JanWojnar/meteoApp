@@ -16,8 +16,8 @@ import java.time.LocalDateTime;
 @SuperBuilder
 public class EndpointCallTo extends AbstractTo {
 
-    private String geoLength;
-    private String geoWidth;
+    private String longitude;
+    private String latitude;
     private LocalDateTime timeOfCall;
 
 }

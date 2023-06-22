@@ -7,8 +7,6 @@ import lombok.experimental.SuperBuilder;
 
 import javax.persistence.*;
 import java.time.LocalDateTime;
-import java.util.ArrayList;
-import java.util.List;
 
 @Setter
 @Getter
@@ -18,11 +16,11 @@ import java.util.List;
 @Table(name = "ENDPOINT_CALL")
 public class EndpointCallEntity extends AbstractEntity{
 
-    @Column(name = "GEO_LENGTH")
-    private String geoLength;
+    @Column(name = "LONGITUDE")
+    private String longitude;
 
-    @Column(name = "GEO_WIDTH")
-    private String geoWidth;
+    @Column(name = "LATITUDE")
+    private String latitude;
 
     @Column(name = "TIME_OF_CALL")
     private LocalDateTime timeOfCall;
