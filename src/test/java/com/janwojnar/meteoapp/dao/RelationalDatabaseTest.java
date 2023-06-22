@@ -36,8 +36,8 @@ class RelationalDatabaseTest {
         String geoLength = "21°00′E";
 
         endpointCallEntity.setTimeOfCall(time);
-        endpointCallEntity.setGeoWidth(geoWidth);
-        endpointCallEntity.setGeoLength(geoLength);
+        endpointCallEntity.setLatitude(geoWidth);
+        endpointCallEntity.setLongitude(geoLength);
 
         endpointCallRepository.save(endpointCallEntity);
 
@@ -45,8 +45,8 @@ class RelationalDatabaseTest {
 
         Assertions.assertAll(
                 () -> Assertions.assertEquals(time.getSecond(), endpointCallEntityList.get(0).getTimeOfCall().getSecond()),
-                () -> Assertions.assertEquals(geoWidth, endpointCallEntityList.get(0).getGeoWidth()),
-                () -> Assertions.assertEquals(geoLength, endpointCallEntityList.get(0).getGeoLength())
+                () -> Assertions.assertEquals(geoWidth, endpointCallEntityList.get(0).getLatitude()),
+                () -> Assertions.assertEquals(geoLength, endpointCallEntityList.get(0).getLongitude())
         );
 
         Assertions.assertEquals(time.getSecond(), endpointCallEntityList.get(0).getTimeOfCall().getSecond());

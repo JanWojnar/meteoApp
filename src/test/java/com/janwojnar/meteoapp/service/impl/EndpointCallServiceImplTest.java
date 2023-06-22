@@ -30,18 +30,18 @@ class EndpointCallServiceImplTest {
     @Test
     void save() {
         LocalDateTime time = LocalDateTime.now();
-        String geoWidth1 = "52°13′N";
-        String geoLength1 = "21°00′E";
+        String latitude1 = "52°13′N";
+        String longitude1 = "21°00′E";
 
-        EndpointCallTo endpointCallTo = EndpointCallTo.builder().timeOfCall(time).geoLength(geoLength1).geoWidth(geoWidth1)
+        EndpointCallTo endpointCallTo = EndpointCallTo.builder().timeOfCall(time).longitude(longitude1).latitude(latitude1)
                 .build();
 
         EndpointCallTo savedEndpointCallTO = endpointCallService.save(endpointCallTo);
 
         Assertions.assertAll(
                 () -> Assertions.assertEquals(time.getSecond(), savedEndpointCallTO.getTimeOfCall().getSecond()),
-                () -> Assertions.assertEquals(geoWidth1, savedEndpointCallTO.getGeoWidth()),
-                () -> Assertions.assertEquals(geoLength1, savedEndpointCallTO.getGeoLength()),
+                () -> Assertions.assertEquals(latitude1, savedEndpointCallTO.getLatitude()),
+                () -> Assertions.assertEquals(longitude1, savedEndpointCallTO.getLongitude()),
                 () -> Assertions.assertNotNull(savedEndpointCallTO.getId())
         );
     }
@@ -49,26 +49,26 @@ class EndpointCallServiceImplTest {
     @Test
     void update() {
         LocalDateTime time = LocalDateTime.now();
-        String geoWidth1 = "52°13′N";
-        String geoLength1 = "21°00′E";
+        String latitude1 = "52°13′N";
+        String longitude1 = "21°00′E";
 
-        String geoWidth2 = "32°13′N";
-        String geoLength2 = "51°00′E";
+        String latitude2 = "32°13′N";
+        String longitude2 = "51°00′E";
 
-        EndpointCallTo endpointCallTo = EndpointCallTo.builder().timeOfCall(time).geoLength(geoLength1).geoWidth(geoWidth1)
+        EndpointCallTo endpointCallTo = EndpointCallTo.builder().timeOfCall(time).latitude(latitude1).longitude(longitude1)
                 .build();
 
         EndpointCallTo savedEndpointCallTO = endpointCallService.save(endpointCallTo);
 
-        savedEndpointCallTO.setGeoWidth(geoWidth2);
-        savedEndpointCallTO.setGeoLength(geoLength2);
+        savedEndpointCallTO.setLatitude(latitude2);
+        savedEndpointCallTO.setLongitude(longitude2);
 
         EndpointCallTo updated = endpointCallService.save(savedEndpointCallTO);
 
         Assertions.assertAll(
                 () -> Assertions.assertEquals(time.getSecond(), updated.getTimeOfCall().getSecond()),
-                () -> Assertions.assertEquals(geoWidth2, updated.getGeoWidth()),
-                () -> Assertions.assertEquals(geoLength2, updated.getGeoLength()),
+                () -> Assertions.assertEquals(latitude2, updated.getLatitude()),
+                () -> Assertions.assertEquals(longitude2, updated.getLongitude()),
                 () -> Assertions.assertNotNull(updated.getId())
         );
     }
