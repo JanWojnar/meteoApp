@@ -1,5 +1,7 @@
 meteoApp for recruitment in Lingventa :)
 
+I have used Java 11.
+
 1. Start MeteoappApplication
 2. Example success call:
 http://localhost:8080/meteoapp/rest/52.23/21.01
