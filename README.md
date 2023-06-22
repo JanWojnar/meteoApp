@@ -13,3 +13,6 @@ First param: <-180.00,180.00> longitude
 Second param: <-90.00,90.00> latitude
 
 For bad inputs proper warning will be prompted in logs and Respone.BadRequest returned.
+
+H2 Database available at:
+http://localhost:8080/meteoapp/h2-console/
