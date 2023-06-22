@@ -16,3 +16,8 @@ For bad inputs proper warning will be prompted in logs and Respone.BadRequest re
 
 H2 Database available at:
 http://localhost:8080/meteoapp/h2-console/
+
+Driver Class: org.h2.Driver
+JDBC URL: jdbc:h2:mem:mydb
+User Name: sa
+Password: password
