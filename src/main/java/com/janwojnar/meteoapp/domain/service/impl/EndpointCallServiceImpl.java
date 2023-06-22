@@ -4,6 +4,7 @@ import com.janwojnar.meteoapp.dao.EndpointCallRepository;
 import com.janwojnar.meteoapp.domain.mapper.EndpointCallMapper;
 import com.janwojnar.meteoapp.domain.service.EndpointCallService;
 import com.janwojnar.meteoapp.domain.to.EndpointCallTo;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -14,6 +15,7 @@ import java.util.stream.Collectors;
 
 @Service
 @Transactional
+@Slf4j
 public class EndpointCallServiceImpl implements EndpointCallService {
 
     @Autowired
@@ -21,6 +23,7 @@ public class EndpointCallServiceImpl implements EndpointCallService {
 
     @Override
     public EndpointCallTo save(EndpointCallTo to) {
+        log.info("Saving call params to database.");
         return EndpointCallMapper.map2TO(endpointCallRepository.save(EndpointCallMapper.map2Entity(to)));
     }
 

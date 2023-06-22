@@ -6,6 +6,7 @@ import com.janwojnar.meteoapp.util.DayHistory;
 import com.janwojnar.meteoapp.util.DaysHistory;
 import com.janwojnar.meteoapp.validator.GeoControllerValidator;
 import com.janwojnar.meteoapp.web.service.OpenMeteoApiService;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -17,6 +18,7 @@ import java.util.List;
 import java.util.Objects;
 
 @Service
+@Slf4j
 public class LastWeekRainingsAndDateTimeUseCase {
 
     @Autowired
@@ -40,13 +42,21 @@ public class LastWeekRainingsAndDateTimeUseCase {
                 .timeOfCall(LocalDateTime.now())
                 .build();
 
-        endpointCallService.save(endpointCallTo);
+        EndpointCallTo savedEndpointCallTo = endpointCallService.save(endpointCallTo);
+        if(Objects.nonNull(savedEndpointCallTo.getId())){
+            log.info("Saving call saved successfully.");
+        } else {
+            log.warn("Saving call may hasn't been saved.");
+        }
+
 
         if(!geoControllerValidator.validateGetLastWeekRainingsAndDaytimeInput(longitude,latitude)){
+            log.warn("Incorrect input params!");
             response = ResponseEntity.badRequest().body("Provided coordinates do not match WGS84 format");
         }
 
         if (Objects.isNull(response)) {
+            log.warn("Validation successful.");
             DaysHistory responseBody = openMeteoApiService.getLastWeekRainingsAndDaytime(longitude,latitude);
             response = ResponseEntity.ok(responseBody);
         }
