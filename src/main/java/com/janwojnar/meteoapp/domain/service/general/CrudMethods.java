@@ -1,4 +1,4 @@
-package com.janwojnar.meteoapp.service.general;
+package com.janwojnar.meteoapp.domain.service.general;
 
 import java.util.List;
 

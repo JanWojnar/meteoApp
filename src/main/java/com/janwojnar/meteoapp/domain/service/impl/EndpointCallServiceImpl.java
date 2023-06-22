@@ -1,9 +1,9 @@
-package com.janwojnar.meteoapp.service.impl;
+package com.janwojnar.meteoapp.domain.service.impl;
 
 import com.janwojnar.meteoapp.dao.EndpointCallRepository;
 import com.janwojnar.meteoapp.domain.mapper.EndpointCallMapper;
+import com.janwojnar.meteoapp.domain.service.EndpointCallService;
 import com.janwojnar.meteoapp.domain.to.EndpointCallTo;
-import com.janwojnar.meteoapp.service.EndpointCallService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 

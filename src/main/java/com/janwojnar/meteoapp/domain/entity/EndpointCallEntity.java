@@ -5,10 +5,7 @@ import lombok.NoArgsConstructor;
 import lombok.Setter;
 import lombok.experimental.SuperBuilder;
 
-import javax.persistence.Column;
-import javax.persistence.ElementCollection;
-import javax.persistence.Entity;
-import javax.persistence.Table;
+import javax.persistence.*;
 import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.List;
@@ -21,9 +18,11 @@ import java.util.List;
 @Table(name = "ENDPOINT_CALL")
 public class EndpointCallEntity extends AbstractEntity{
 
-    @Column(name = "PARAMS")
-    @ElementCollection
-    private List<String> callParams = new ArrayList<>();
+    @Column(name = "GEO_LENGTH")
+    private String geoLength;
+
+    @Column(name = "GEO_WIDTH")
+    private String geoWidth;
 
     @Column(name = "TIME_OF_CALL")
     private LocalDateTime timeOfCall;

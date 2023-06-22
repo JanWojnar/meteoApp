@@ -7,8 +7,7 @@ import lombok.Setter;
 import lombok.experimental.SuperBuilder;
 
 import java.time.LocalDateTime;
-import java.util.ArrayList;
-import java.util.List;
+
 
 @Setter
 @Getter
@@ -17,8 +16,8 @@ import java.util.List;
 @SuperBuilder
 public class EndpointCallTo extends AbstractTo {
 
-    private List<String> callParams = new ArrayList<>();
-
+    private String geoLength;
+    private String geoWidth;
     private LocalDateTime timeOfCall;
 
 }
